@@ -49,12 +49,6 @@ class App extends Component {
   };
 
   render() {
-    // const filtered = this.state.contacts.filter(
-    //   ({ name, number }) =>
-    //     name.toLowerCase().includes(this.state.filter.toLocaleLowerCase()) ||
-    //     number.includes(this.state.filter),
-    // );
-
     return (
       <>
         <PageTitle title="Phone Book" />
@@ -63,10 +57,7 @@ class App extends Component {
           <ContactForm />
           <Title title="Сontacts" />
           <Filter />
-          {/* <ContactList
-            filtered={filtered}
-            onDeleteContact={this.deleteContact}
-          /> */}
+          <ContactList />
         </Section>
       </>
     );
