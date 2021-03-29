@@ -24,16 +24,3 @@ const App = () => {
 };
 
 export default App;
-
-// Left from class component till Local Storage refactoring
-// componentDidMount() {
-//   const contacts = localStorage.getItem('contacts');
-//   const parsedContacts = JSON.parse(contacts);
-//   parsedContacts && this.setState({ contacts: [...parsedContacts] });
-// }
-
-// componentDidUpdate(prevProps, prevState) {
-//   if (prevState.contacts !== this.state.contacts) {
-//     localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
-//   }
-// }

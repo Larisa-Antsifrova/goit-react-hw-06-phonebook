@@ -1,8 +1,8 @@
-import {
-  configureStore,
-  getDefaultMiddleware,
-  combineReducers,
-} from '@reduxjs/toolkit';
+// Imports from Redux Toolkit
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+// Imports from Redux Persist
+import storage from 'redux-persist/lib/storage';
+// Redux Persist fix
 import {
   persistStore,
   persistReducer,
@@ -13,17 +13,10 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
+// Imports of middleware
 import logger from 'redux-logger';
+// Imports of reducers
 import { phonebookReducer } from './phonebook-reducers';
-
-const persistConfig = {
-  key: 'phonebook',
-  storage,
-};
-
-const rootReducer = combineReducers({ contacts: phonebookReducer });
-const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -34,8 +27,16 @@ const middleware = [
   logger,
 ];
 
+const phonebookPersistConfig = {
+  key: 'phonebook',
+  storage,
+  blacklist: ['filter'],
+};
+
 const store = configureStore({
-  reducer: persistedReducer,
+  reducer: {
+    contacts: persistReducer(phonebookPersistConfig, phonebookReducer),
+  },
   middleware,
   devTools: process.env.NODE_ENV !== 'production',
 });
