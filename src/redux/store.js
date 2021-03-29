@@ -1,5 +1,9 @@
-import { createStore } from 'redux';
+// import { createStore, combineReducers } from 'redux';
+// import { composeWithDevTools } from 'redux-devtools-extension';
+// import { counterReducer } from './counter/counter-reducer';
 
-const store = createStore();
+// const rootReducer = combineReducers({ counter: counterReducer });
 
-export { store };
+// const store = createStore(rootReducer, composeWithDevTools());
+
+// export { store };
