@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import { connect } from 'react-redux';
 import { deleteContact } from '../../redux/phonebook-actions';
 
@@ -27,7 +28,7 @@ const ContactList = ({ filtered, onDeleteContact }) => {
           </li>
         ))
       ) : (
-        <li className={styles.notification}>No contact found</li>
+        <li className={styles.notification}>No contact found.</li>
       )}
     </ul>
   );
@@ -39,8 +40,8 @@ ContactList.propTypes = {
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       number: PropTypes.string.isRequired,
-    }),
-  ),
+    }).isRequired,
+  ).isRequired,
   onDeleteContact: PropTypes.func.isRequired,
 };
 
