@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { updateFilter } from '../../redux/phonebook-actions';
 import styles from './Filter.module.css';
 
 const Filter = ({ filterValue, filterUpdate }) => {
@@ -29,4 +31,12 @@ Filter.propTypes = {
   filterUpdate: PropTypes.func.isRequired,
 };
 
-export default Filter;
+const mapStateToProps = state => ({
+  filterValue: state.contacts.filter,
+});
+
+const mapDispatchToProps = dispatch => ({
+  filterUpdate: event => dispatch(updateFilter(event.target.value)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Filter);

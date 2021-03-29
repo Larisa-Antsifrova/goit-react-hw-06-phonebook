@@ -62,10 +62,7 @@ class App extends Component {
           <Title title="Add contacts" />
           <ContactForm />
           <Title title="Сontacts" />
-          {/* <Filter
-            filterValue={this.state.filter}
-            filterUpdate={this.filterUpdate}
-          /> */}
+          <Filter />
           {/* <ContactList
             filtered={filtered}
             onDeleteContact={this.deleteContact}
