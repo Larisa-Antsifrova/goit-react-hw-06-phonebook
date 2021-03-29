@@ -7,10 +7,12 @@ const items = (state = [], { type, payload }) => {
       const existingContact = state.find(
         contact => contact.name === payload.name,
       );
+
       if (existingContact) {
         alert(`${existingContact.name} is already in contacts.`);
-        return;
+        return state;
       }
+
       return [payload, ...state];
 
     case DELETE:
