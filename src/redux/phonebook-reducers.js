@@ -9,7 +9,7 @@ const items = createReducer([], {
 });
 
 const filter = createReducer('', {
-  [updateFilter]: (state, { payload }) => payload,
+  [updateFilter]: (_, { payload }) => payload,
 });
 
 export const phonebookReducer = combineReducers({
