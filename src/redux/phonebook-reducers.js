@@ -4,15 +4,6 @@ import { ADD, DELETE, UPDATE_FILTER } from './phonebook-action-types';
 const items = (state = [], { type, payload }) => {
   switch (type) {
     case ADD:
-      const existingContact = state.find(
-        contact => contact.name === payload.name,
-      );
-
-      if (existingContact) {
-        alert(`${existingContact.name} is already in contacts.`);
-        return state;
-      }
-
       return [payload, ...state];
 
     case DELETE:

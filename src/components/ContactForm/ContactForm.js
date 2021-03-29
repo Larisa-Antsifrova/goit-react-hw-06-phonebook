@@ -1,9 +1,12 @@
+// Imports from React
 import React, { Component } from 'react';
+// Helpers imports
 import { v4 as uuidv4 } from 'uuid';
 import PropTypes from 'prop-types';
+// Imports from Redux
 import { connect } from 'react-redux';
 import { addContact } from '../../redux/phonebook-actions';
-
+// Styles imports
 import styles from './ContactForm.module.css';
 
 class ContactForm extends Component {
@@ -30,7 +33,16 @@ class ContactForm extends Component {
       return;
     }
 
-    const newContact = { id: id, name: name, number: number };
+    const existingContact = this.props.state.contacts.items.find(
+      contact => contact.name === name,
+    );
+
+    if (existingContact) {
+      alert(`${existingContact.name} is already in contacts.`);
+      return;
+    }
+
+    const newContact = { id, name, number };
 
     this.props.submitHandler(newContact);
 
@@ -72,7 +84,12 @@ class ContactForm extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  state,
+});
+
 const mapDispatchToProps = dispatch => ({
   submitHandler: contact => dispatch(addContact(contact)),
 });
-export default connect(null, mapDispatchToProps)(ContactForm);
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContactForm);
