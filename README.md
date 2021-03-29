@@ -1,3 +1,3 @@
-# React Homework. Module 3
+# React Homework. Module 6
 
-Phonebook. Local Storage.
+Pure Redux Phonebook.
