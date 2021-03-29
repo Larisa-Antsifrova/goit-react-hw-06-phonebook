@@ -1,9 +1,9 @@
-// import { createStore, combineReducers } from 'redux';
-// import { composeWithDevTools } from 'redux-devtools-extension';
-// import { counterReducer } from './counter/counter-reducer';
+import { createStore, combineReducers } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import { phonebookReducer } from './phonebook-reducers';
 
-// const rootReducer = combineReducers({ counter: counterReducer });
+const rootReducer = combineReducers({ contacts: phonebookReducer });
 
-// const store = createStore(rootReducer, composeWithDevTools());
+const store = createStore(rootReducer, composeWithDevTools());
 
-// export { store };
+export { store };

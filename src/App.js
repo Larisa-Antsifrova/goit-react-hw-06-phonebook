@@ -6,22 +6,17 @@ import ContactForm from './components/ContactForm';
 import Filter from './components/Filter';
 import ContactList from './components/ContactList';
 class App extends Component {
-  state = {
-    contacts: [],
-    filter: '',
-  };
+  // componentDidMount() {
+  //   const contacts = localStorage.getItem('contacts');
+  //   const parsedContacts = JSON.parse(contacts);
+  //   parsedContacts && this.setState({ contacts: [...parsedContacts] });
+  // }
 
-  componentDidMount() {
-    const contacts = localStorage.getItem('contacts');
-    const parsedContacts = JSON.parse(contacts);
-    parsedContacts && this.setState({ contacts: [...parsedContacts] });
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.contacts !== this.state.contacts) {
-      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
-    }
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (prevState.contacts !== this.state.contacts) {
+  //     localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+  //   }
+  // }
 
   submitHandler = newContact => {
     const { contacts } = this.state;
@@ -54,27 +49,27 @@ class App extends Component {
   };
 
   render() {
-    const filtered = this.state.contacts.filter(
-      ({ name, number }) =>
-        name.toLowerCase().includes(this.state.filter.toLocaleLowerCase()) ||
-        number.includes(this.state.filter),
-    );
+    // const filtered = this.state.contacts.filter(
+    //   ({ name, number }) =>
+    //     name.toLowerCase().includes(this.state.filter.toLocaleLowerCase()) ||
+    //     number.includes(this.state.filter),
+    // );
 
     return (
       <>
         <PageTitle title="Phone Book" />
         <Section>
           <Title title="Add contacts" />
-          <ContactForm submitHandler={this.submitHandler} />
+          <ContactForm />
           <Title title="Сontacts" />
-          <Filter
+          {/* <Filter
             filterValue={this.state.filter}
             filterUpdate={this.filterUpdate}
-          />
-          <ContactList
+          /> */}
+          {/* <ContactList
             filtered={filtered}
             onDeleteContact={this.deleteContact}
-          />
+          /> */}
         </Section>
       </>
     );
