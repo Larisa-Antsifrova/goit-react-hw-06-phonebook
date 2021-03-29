@@ -1,3 +1,4 @@
-# React Homework. Module 3
+# React Homework. Module 6
 
-Phonebook. Local Storage.
+- Branch main - Redux Toolkit Phonebook App.
+- Branch redux-phonebook - Pure Redux Phonebook App.
